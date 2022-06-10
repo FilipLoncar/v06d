@@ -65,8 +65,8 @@ void main_window::on_command(int id){
 		{
 			COLORREF custCols[16] = { 0 };
 			CHOOSECOLOR cc;
-			ZeroMemory(&cc, sizeof(cc));
-			cc.lStructSize = sizeof(cc);
+			ZeroMemory(&cc, sizeof(CHOOSECOLOR));
+			cc.lStructSize = sizeof(CHOOSECOLOR);
 			cc.Flags = CC_FULLOPEN | CC_RGBINIT;
 			cc.lpCustColors = custCols;
 			cc.rgbResult = color;
