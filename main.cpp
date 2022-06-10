@@ -55,7 +55,7 @@ void main_window::on_command(int id){
 		{
 			number_dialog nDlg;
 			nDlg.brojKrugova = brojkrugova;
-			if (nDlg.do_modal(0, *this), IDOK) {
+			if (nDlg.do_modal(0, *this)== IDOK) {
 				brojkrugova = nDlg.brojKrugova;
 				InvalidateRect(*this, nullptr, true);
 			}
