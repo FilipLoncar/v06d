@@ -63,12 +63,14 @@ void main_window::on_command(int id){
 		}
 		case ID_COLOR: 
 		{
-			COLORREF custCols[16] = { 0 };
+
 			CHOOSECOLOR cc;
+			static COLORREF custCols[16] = { 0 };
+			cc.hwndOwner = *this;  //glavni prozor mu je parent ali dialog može izaæi izvan njega pa je owner
 			ZeroMemory(&cc, sizeof(CHOOSECOLOR));
 			cc.lStructSize = sizeof(CHOOSECOLOR);
 			cc.Flags = CC_FULLOPEN | CC_RGBINIT;
-			cc.lpCustColors = custCols;
+			cc.lpCustColors = (LPDWORD) custCols;
 			cc.rgbResult = color;
 			if (ChooseColor(&cc)) {
 				color = cc.rgbResult;
